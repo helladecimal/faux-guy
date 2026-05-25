@@ -1,2 +1,2 @@
 # platformer-test
-IWBTG port for IWBTG
+IWBTG port for Godot
