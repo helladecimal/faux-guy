@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ba4xa43028lpn"]
+
+[ext_resource type="Texture2D" uid="uid://c7fol42dmxdrb" path="res://sprites/iwbtg sprite.png" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://p1a84f1suy7i" path="res://scripts/bullet.gd" id="1_y25gk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea4jj"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(70, 413, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k40ko"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(75, 413, 4, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y25gk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea4jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k40ko")
+}],
+"loop": true,
+"name": &"Shimmer",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
+size = Vector2(4, 4)
+
+[node name="Bullet" type="CharacterBody2D" unique_id=571710437]
+collision_layer = 128
+script = ExtResource("1_y25gk")
+
+[node name="BulletSprite" type="AnimatedSprite2D" parent="." unique_id=786739631]
+sprite_frames = SubResource("SpriteFrames_y25gk")
+animation = &"Shimmer"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=773879985]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=477096126]
+shape = SubResource("RectangleShape2D_mkf8s")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=413664450]
+shape = SubResource("RectangleShape2D_mkf8s")
+
+[connection signal="shoot" from="." to="." method="_on_shoot"]

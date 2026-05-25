@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bm4tdwurw2773"]
+
+[ext_resource type="Texture2D" uid="uid://dpcojkkqi2io4" path="res://sprites/game_over.png" id="1_xeevv"]
+
+[node name="GameOverUI" type="Sprite2D" unique_id=753260872]
+z_index = 99
+texture = ExtResource("1_xeevv")
